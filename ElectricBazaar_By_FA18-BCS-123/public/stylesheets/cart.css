@@ -1,0 +1,20 @@
+body {
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+  min-height: 100vh;
+}
+
+td,a{
+
+  font-weight: bold;
+
+}
+
+.proceed-btn{
+
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 5px; 
+}
+

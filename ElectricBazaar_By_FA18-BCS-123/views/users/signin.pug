@@ -1,0 +1,39 @@
+doctype html
+head
+  include ../partials/head.pug
+  include ../partials/jumbotron-navbar.pug
+  link(rel='stylesheet' href='/stylesheets/login_signup-form.css')
+  title  Login 
+  // This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io!
+.login-body
+  .container
+        .row
+          .col-md-4
+            .form_main
+              h4.heading
+                strong Sign
+                | In
+                span
+              .form
+                form#edit-product-form(action='/signin' method='post' name='signin-form')
+                  label(for='email')  E-mail
+                  input.txt(type='text' class="input" placeholder='Please input Email'  name='email')
+                  label(for='price') Password
+                  input.txt(type='text' class="input" placeholder='Please input password'  name='password')
+                  button.btn.btn-default(type='submit') Signin
+              button.btn.btn-lg.btn-google.btn-block.text-uppercase(type='submit')
+                i.fab.fa-google.mr-2
+                |  Sign in with Google
+              button.btn.btn-lg.btn-facebook.btn-block.text-uppercase(type='submit')
+                i.fab.fa-facebook-f.mr-2
+                |  Sign in with Facebook
+              br  
+              h5
+                | Don't have an account? 
+                a(href='/signup')  Sign Up 
+  
+footer
+  include ../partials/footer.pug
+
+
+

@@ -1,0 +1,45 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+
+
+.jumbotron
+  .container.text-center
+    img#logo(src="./images/WEB LOGO final.PNG", alt, srcset)
+    //
+       <h1>Online Store</h1>
+                  <p>Mission, Vission & Values</p> 
+nav#navbar.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle(type="button", data-toggle="collapse", data-target="#myNavbar")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href="#") logo
+    .collapse.navbar-collapse#myNavbar
+      ul.nav.navbar-nav
+        li.active
+          a(href="#") Home
+        li
+          a(href="#") Products
+        li
+          a(href="#") Deals
+        li
+          a(href="#") Stores
+        li
+          a(href="#") Contact
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="#")
+            span
+            |  Sign in
+        li
+          a(href="#")
+            span.glyphicon.glyphicon-shopping-cart
+            |  Cart
+
+block content
+

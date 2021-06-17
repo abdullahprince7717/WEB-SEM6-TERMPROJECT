@@ -1,0 +1,69 @@
+doctype html
+html
+  head
+    include partials/head.pug
+    link(rel='stylesheet', href='/stylesheets/cart.css')
+  body
+    include partials/jumbotron-navbar.pug
+    - var total=0;
+    .px-4.px-lg-0
+      // For demo purpose
+      .container.text-white.py-5.text-center
+        h1.display-4 Shopping Cart
+        br
+      .pb-5
+        .container
+          .row
+            .col-lg-12.p-5.bg-white.rounded.shadow-sm.mb-5
+              // Shopping cart table
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th.border-0.bg-light(scope='col')
+                        .p-2.px-3.text-uppercase Product
+                      th.border-0.bg-light(scope='col')
+                        .py-2.text-uppercase Price
+                      th.border-0.bg-light(scope='col')
+                        .py-2.text-uppercase Quantity
+                      th.border-0.bg-light(scope='col')
+                        .py-2.text-uppercase Action
+                  tbody
+                    each item in cart
+                        - total += Number(item.price);
+                        tr
+                          th.border-0(scope='row')
+                            .p-2
+                              img.img-fluid.rounded.shadow-sm(src='' alt='img not found' width='70')
+                              .ml-3.d-inline-block.align-middle
+                                h5.mb-0
+                                  a.text-dark.d-inline-block.align-middle(href='#')=item.name
+                                span.text-muted.font-weight-normal.font-italic.d-block Category:
+                          td.border-0.align-middle=item.price  
+                             
+                          td.border-0.align-middle
+                            strong 1
+                          td.border-0.align-middle
+                            a.text-dark(href='/products/cart/remove/'+item._id)
+                              i.fa.fa-trash
+                        
+              // End
+          
+            .col-lg-12.text-center.text-sm-center
+              h4.bg-light.rounded-pill.px-4.py-3.text-uppercase.font-weight-bold Order summary 
+              .p-4
+                ul.col-5.list-unstyled.mb-4
+                  li.d-flex.justify-content-between.py-3.border-bottom
+                    strong.text-muted Order Subtotal = 
+                    strong=total
+                  li.d-flex.justify-content-between.py-3.border-bottom
+                    strong.text-muted Shipping and handling = 
+                    strong 0
+                  li.d-flex.py-3.border-bottom
+                    strong.text-muted Tax = 
+                    strong 0
+                  li.d-flex.justify-content-between.py-3.border-bottom
+                    strong.text-muted Total = 
+                    strong= total
+                a.proceed-btn.btn.btn-success.rounded-pill.py-2.btn-block(href='#') Procceed to checkout
+    include partials/footer.pug            

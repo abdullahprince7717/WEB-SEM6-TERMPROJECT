@@ -1,0 +1,23 @@
+head
+    title Edit Product
+    
+    link(rel='stylesheet', href='/stylesheets/add-product.css',type='text/css')
+    
+
+body
+    .container
+      .row
+        .col-md-4
+          .form_main
+            h4.heading
+              strong Edit
+              | Product
+              span
+            .form
+              form#edit-product-form(action='/products/edit/'+ product._id method='post' name='edit-product-form')
+                label(for='name') Product Name
+                input.txt(type='text' class="input" placeholder='Please input Product Name' value=product.name name='name')
+                label(for='price') Product Price
+                input.txt(type='text' class="input" placeholder='Please input Product Price' value=product.price name='price')
+                input.search-btn(type='submit' class="input" name='submit')
+                //- a(href="/products" class="btn btn-danger") Back
