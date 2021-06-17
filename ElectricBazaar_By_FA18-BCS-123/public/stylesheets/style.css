@@ -16,7 +16,6 @@ body{
   border-radius: 0;
 }
 
-/* Remove the jumbotron's default bottom margin */
 .jumbotron {
   margin-bottom: 0;
   background-color: rgb(249, 255, 0);

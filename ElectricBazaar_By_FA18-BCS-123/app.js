@@ -6,10 +6,10 @@ var logger = require('morgan');
 var mongoose = require("mongoose");
 var session = require('express-session');
 
+var sessionAuth = require('./middlewares/sessionAuth');
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products')
 var usersRouter = require('./routes/users')
-
 
 
 var app = express();
@@ -18,6 +18,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(session({
+  secret: 'dummytext',
+  cookie: {
+    maxAge: 60000,
+  }
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({
@@ -25,14 +32,8 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: 'dummytext',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: true
-  }
-}));
+app.use(sessionAuth);
+
 
 app.use('/', indexRouter);
 app.use('/', productsRouter);

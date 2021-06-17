@@ -11,16 +11,25 @@ router.get('/signin', function (req, res, next) {
 router.post('/signin', async function (req, res, next) {
   let user = await usersModel.findOne({
     email: req.body.email,
-    pasword: req.body.password
+    password: req.body.password
   })
 
   if (!user) {
     console.log("user not found");
     return res.redirect('/signin');
   }
-  res.redirect("/");
+
+  req.session.user = user;
+  return res.redirect("/");
 
 });
+
+router.get('/signout', function (req, res, next) {
+  req.session.user = null;
+  res.redirect("/signin");
+
+});
+
 
 router.get('/signup', function (req, res, next) {
   res.render("users/signup");

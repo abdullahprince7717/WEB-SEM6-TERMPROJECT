@@ -3,18 +3,22 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+
+  console.log(req.session.user)
   res.render("index");
 
 });
 
 router.get('/cart', function (req, res, next) {
 
-    let cart  = req.cookies.cart
-    if(!cart){
-        cart = [];
-    }
-    res.render("cart",{cart:cart});
-  
+  let cart = req.cookies.cart
+  if (!cart) {
+    cart = [];
+  }
+  res.render("cart", {
+    cart: cart
+  });
+
 });
 
 router.get('/footer', function (req, res, next) {
