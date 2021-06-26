@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var checkSessionAuth = require('../middlewares/checkSessionAuth')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  console.log(req.session.user)
   res.render("index");
 
 });
 
-router.get('/cart', function (req, res, next) {
+
+router.get('/cart', checkSessionAuth, function (req, res, next) {
 
   let cart = req.cookies.cart
   if (!cart) {
@@ -21,14 +22,5 @@ router.get('/cart', function (req, res, next) {
 
 });
 
-router.get('/footer', function (req, res, next) {
-  res.render("footer");
-
-});
-
-router.get('/template', function (req, res, next) {
-  res.render("template");
-
-});
 
 module.exports = router;

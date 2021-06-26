@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var usersModel = require('../models/users')
+var checkSessionAuth = require('../middlewares/checkSessionAuth')
 
 /* GET home page. */
 router.get('/signin', function (req, res, next) {
